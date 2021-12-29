@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import MainLayout from './component/layout/MainLayout/MainLayout';
+import Planet from './component/views/Planet/Planet';
+
+const App = () => (
+  <div className = "App">
+    <BrowserRouter>
+      <MainLayout>
+        <Switch>
+          <Route exact path='/'>
+            <Redirect to = '/Mercury' />
+          </Route>
+          <Route exact path='/:planetId' component={Planet} />
+        </Switch>
+      </MainLayout>
+    </BrowserRouter>
+  </div>
+);
 
 export default App;

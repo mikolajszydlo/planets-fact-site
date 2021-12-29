@@ -1,0 +1,40 @@
+@import './settings.scss';
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@500&family=Spartan:wght@400;700&display=swap');
+
+@mixin header($family, $size, $line-height) {
+  font-family: $family;
+  font-size: $size;
+  line-height: $line-height;
+  text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6, button {
+  margin: 0;
+  color: #FFF;
+}
+
+h1 {
+  @include header($font-header, 28px, 36px);
+  letter-spacing: -1.05px;
+}
+
+h2 {
+  @include header($font-header, 80px, 103px);
+}
+
+h3, button {
+  @include header($font-text, 12px, 25px);
+  letter-spacing: 2.6px;
+  font-weight: 700;
+}
+
+h4, nav {
+  @include header($font-text, 11px, 25px);
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: $color-dark;
+}
+
+button {
+  text-align: left;
+}

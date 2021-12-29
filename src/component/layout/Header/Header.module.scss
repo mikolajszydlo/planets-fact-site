@@ -1,0 +1,93 @@
+@import '../../../styles/settings.scss';
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+.containter {
+  width: 100%;
+  padding-left: 3.2rem;
+  padding-right: 4.2rem;
+  margin-bottom: Min(5vh, 15rem);
+  border-bottom: 1px solid $color-hover;
+}
+
+.navContainer {
+  display: flex;
+  margin-left: auto;
+  justify-content: space-between;
+  max-width: 66.5rem;
+}
+
+.navigation {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 8.5rem;
+  color: $color-dark;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 0%;
+    height: .4rem;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%);
+  }
+
+  &:hover {
+    color: $color-light;
+  }
+}
+
+.active {
+  color: $color-light;
+
+  &::after {
+    width: 100%;
+  }
+}
+
+@mixin planet($color) {
+  &::after {
+    background-color: $color;
+  }
+}
+
+.mercury {
+  @include planet($color-merkury);
+}
+
+.venus {
+  @include planet($color-venus); 
+}
+
+.earth {
+  @include planet($color-earth);
+}
+
+.mars {
+  @include planet($color-mars);
+}
+
+.jupiter {
+  @include planet($color-jupiter);
+}
+
+.saturn {
+  @include planet($color-saturn);
+}
+
+.uranus {
+  @include planet($color-uranus);
+}
+
+.neptune {
+  @include planet($color-neptune);
+}

@@ -1,0 +1,31 @@
+@import '../../../styles/settings.scss';
+
+@mixin font-style {
+  font-family: $font-text;
+  font-size: 1.4rem;
+  line-height: 2.5rem
+}
+
+.cardContent {
+  @include font-style();
+  color: $color-light;
+
+};
+
+.source {
+  @include font-style();
+  font-weight: 400;
+  color: $color-dark;
+
+  .sourceLink {
+    padding-left: 1rem;
+    color: $color-dark;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
+.arrowIcon {
+  padding-left: 1rem;
+  text-decoration: none;
+}
