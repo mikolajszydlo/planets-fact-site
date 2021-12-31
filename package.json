@@ -13,7 +13,8 @@
     "react-router-transition": "^1.4.0",
     "react-scripts": "5.0.0",
     "shortid": "^2.2.16",
-    "web-vitals": "^2.1.2"
+    "web-vitals": "^2.1.2",
+    "sass": "6.14.15"
   },
   "scripts": {
     "start": "react-scripts start",
