@@ -4,7 +4,7 @@ import { Col, Grid, Row } from 'react-flexbox-grid';
 import styles from './Header.module.scss';
 import planets from '../../../data/data.json';
 
-const Header = () => {
+const Header = (props) => {
   const shortid = require('shortid');
 
   return (
@@ -22,6 +22,7 @@ const Header = () => {
                     className = {`${styles[planet.name.toLowerCase()]} ${styles.navLink}`} 
                     activeClassName = {styles.active} 
                     exact to = {`/${planet.name}`}
+                    onChange = {() => props.resetState()}
                   >
                     {planet.name}
                   </NavLink>

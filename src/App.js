@@ -1,20 +1,12 @@
 import React from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-
 import MainLayout from './component/layout/MainLayout/MainLayout';
-import Planet from './component/views/Planet/Planet';
+import { BrowserRouter } from 'react-router-dom';
+
 
 const App = () => (
   <div className = "App">
     <BrowserRouter>
-      <MainLayout>
-        <Switch>
-          <Route exact path='/'>
-            <Redirect to = '/Mercury' />
-          </Route>
-          <Route exact path='/:planetId' component={Planet} />
-        </Switch>
-      </MainLayout>
+      <MainLayout />
     </BrowserRouter>
   </div>
 );

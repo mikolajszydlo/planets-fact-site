@@ -18,3 +18,39 @@
     padding-left: 2.8rem;
   }
 }
+
+@mixin planet($color) {
+  background-color: $color;
+}
+
+.mercury {
+  @include planet($color-merkury);
+}
+
+.venus {
+  @include planet($color-venus); 
+}
+
+.earth {
+  @include planet($color-earth);
+}
+
+.mars {
+  @include planet($color-mars);
+}
+
+.jupiter {
+  @include planet($color-jupiter);
+}
+
+.saturn {
+  @include planet($color-saturn);
+}
+
+.uranus {
+  @include planet($color-uranus);
+}
+
+.neptune {
+  @include planet($color-neptune);
+}

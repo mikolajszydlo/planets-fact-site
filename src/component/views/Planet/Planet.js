@@ -1,29 +1,18 @@
 import React from 'react';
 import { Col, Grid, Row } from 'react-flexbox-grid';
-
+import { withRouter } from 'react-router-dom';
 import planets from '../../../data/data.json';
 import Card from '../../common/Card/Card';
-// import Button from '../../common/Button/Button';
+import Button from '../../common/Button/Button';
 import Image from '../../common/Image/Image';
 import Tile from '../../common/Tile/Tile';
 import styles from './Planet.module.scss';
 
 class Planet extends React.Component {
-  
-  state = {
-    contentType: 'overview',
-  };
-
-  changeContentType(contentType){
-    this.setState(state => ({
-      contentType: contentType}
-    ));
-  };
 
   render() {
-
     const planetName = this.props.match.params.planetId
-    const contentType = this.state.contentType
+    const contentType = this.props.contentType
     const planetData = planets.filter(planet => (planet.name === planetName) && planet)[0]
     const planetDescription = planetData[contentType].content;
     const contentSource = planetData[contentType].source;
@@ -40,7 +29,7 @@ class Planet extends React.Component {
     };
 
     const selectedImagesUrls = (selectImagesToRender(contentType));
-
+    console.log(this.props)
     return (
       <div>
           <Grid>
@@ -51,21 +40,27 @@ class Planet extends React.Component {
               <Col lg={4}>
                 <h2>{planetName}</h2>
                 <Card planetData = {planetDescription} contentSource = {contentSource} />
-                {/* <Button activeLinkName = {activeLinkName} contentType = {contentType} onClickAddress = {`overview`}/>
-                <Button activeLinkName = {activeLinkName} contentType = {contentType} onClickAddress = {`structure`}/>
+                <Button 
+                  activeLinkName = {activeLinkName} 
+                  contentType = {contentType} 
+                  onClicFunc = {this.props.changeContentType.bind(this)}
+                  buttonId = {'01'}
+                  buttonText = {'Overview'}
+                />
+                {/* <Button activeLinkName = {activeLinkName} contentType = {contentType} onClickAddress = {`structure`}/>
                 <Button activeLinkName = {activeLinkName} contentType = {contentType} onClickAddress = {`geology`}/> */}
-                <button 
+                {/* <button 
                   className = {`${styles.button} ${(contentType === 'overview' ? styles[activeLinkName] : '')}`} 
-                  onClick = {() => this.changeContentType('overview')}>
+                  onClick = {() => this.props.changeContentType('overview')}>
                      <span className = {styles.numberId}>01</span>Overview
-                </button>
+                </button> */}
                 <button 
                   className = {`${styles.button} ${(contentType === 'structure' ? styles[activeLinkName] : '')}`} 
-                  onClick = {() => this.changeContentType('structure')}>
+                  onClick = {() => this.props.changeContentType('structure')}>
                      <span className = {styles.numberId}>02</span>Internal Structure</button>
                 <button
                   className = {`${styles.button} ${(contentType === 'geology' ? styles[activeLinkName] : '')}`} 
-                  onClick = {() => this.changeContentType('geology')}>
+                  onClick = {() => this.props.changeContentType('geology')}>
                      <span className = {styles.numberId}>03</span>Geology
                 </button>
               </Col>
@@ -82,4 +77,4 @@ class Planet extends React.Component {
   };
 };
 
-export default Planet;
+export default withRouter(Planet);
