@@ -3,12 +3,13 @@ import '../../../styles/settings.scss';
 import styles from './Button.module.scss';
 
 const Button = (props) => {
-  console.log(props)
+  const { contentType, activeLinkName, buttonId, buttonText, onClickFunc } = props
+   
   return (
     <button 
-      className = {`${styles.button} ${(props.contentType === 'overview' ? styles[props.activeLinkName] : '')}`} 
-      onClick = {() => props.onClickFunc(props.contentType)}>
-        <span className = {styles.numberId}>{props.buttonId}</span>{props.buttonText}
+      className = {`${styles.button} ${(contentType === 'overview' ? styles[activeLinkName] : '')}`} 
+      onClick = {() => onClickFunc(contentType)}>
+        <span className = {styles.numberId}>{buttonId}</span>{buttonText}
     </button>
   )
 };

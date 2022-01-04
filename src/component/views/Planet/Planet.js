@@ -3,7 +3,7 @@ import { Col, Grid, Row } from 'react-flexbox-grid';
 import { withRouter } from 'react-router-dom';
 import planets from '../../../data/data.json';
 import Card from '../../common/Card/Card';
-import Button from '../../common/Button/Button';
+// import Button from '../../common/Button/Button';
 import Image from '../../common/Image/Image';
 import Tile from '../../common/Tile/Tile';
 import styles from './Planet.module.scss';
@@ -29,7 +29,7 @@ class Planet extends React.Component {
     };
 
     const selectedImagesUrls = (selectImagesToRender(contentType));
-    console.log(this.props)
+
     return (
       <div>
           <Grid>
@@ -40,20 +40,18 @@ class Planet extends React.Component {
               <Col lg={4}>
                 <h2>{planetName}</h2>
                 <Card planetData = {planetDescription} contentSource = {contentSource} />
-                <Button 
+                {/* <Button 
                   activeLinkName = {activeLinkName} 
                   contentType = {contentType} 
                   onClicFunc = {this.props.changeContentType.bind(this)}
                   buttonId = {'01'}
                   buttonText = {'Overview'}
-                />
-                {/* <Button activeLinkName = {activeLinkName} contentType = {contentType} onClickAddress = {`structure`}/>
-                <Button activeLinkName = {activeLinkName} contentType = {contentType} onClickAddress = {`geology`}/> */}
-                {/* <button 
+                /> */}
+                <button 
                   className = {`${styles.button} ${(contentType === 'overview' ? styles[activeLinkName] : '')}`} 
                   onClick = {() => this.props.changeContentType('overview')}>
                      <span className = {styles.numberId}>01</span>Overview
-                </button> */}
+                </button>
                 <button 
                   className = {`${styles.button} ${(contentType === 'structure' ? styles[activeLinkName] : '')}`} 
                   onClick = {() => this.props.changeContentType('structure')}>
