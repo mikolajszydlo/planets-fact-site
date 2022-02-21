@@ -1,7 +1,6 @@
 # Link to the app
 
-https://planets-fact-site2.herokuapp.com/Mercury
-
+https://planets-fact-site2.herokuapp.com/
 ## Available Scripts
 
 In the project directory, you can run:
