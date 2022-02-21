@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Link to the app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://planets-fact-site2.herokuapp.com/Mercury
 
 ## Available Scripts
 
